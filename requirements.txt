@@ -1,0 +1,47 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+
+# LangChain / LangGraph
+langchain
+langchain-openai
+langchain-pinecone
+langchain-community
+langgraph
+langgraph-checkpoint-postgres   # the durable checkpointer's DB driver,
+                                # separate from asyncpg used everywhere else
+                                # (see app/core/memory.py)
+psycopg[binary]                 # bundles a precompiled libpq — without the
+                                 # [binary] extra pip installs bare psycopg,
+                                 # which needs the libpq system library that
+                                 # python:3.13-slim doesn't have
+psycopg-pool
+
+# RAG vector store
+pinecone
+
+# Document text extraction (Train Bot uploads)
+pypdf
+python-multipart
+
+# DB
+sqlalchemy[asyncio]
+asyncpg
+alembic
+
+# Auth
+pyjwt
+
+# Tools calling the existing Node backend
+httpx
+
+# Scheduling (RAG re-ingestion)
+apscheduler
+
+# Planned for rate limiting (plan.txt section 10) — NOT the checkpointer,
+# that's decided as Postgres now (app/core/memory.py)
+redis
+
+# Tests
+pytest
+pytest-asyncio
