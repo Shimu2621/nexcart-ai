@@ -8,3 +8,19 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8001} --loop app.core.loop:loop_factory
+
+
+# Docker Image
+    │
+    ├── Python 3.13
+    │
+    ├── /app
+    │
+    ├── requirements.txt
+    │      └── pip install dependencies
+    │
+    ├── Application source code
+    │
+    └── Uvicorn
+           └── app.main:app
+                  └── FastAPI
