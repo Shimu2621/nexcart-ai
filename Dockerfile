@@ -9,6 +9,9 @@ COPY . .
 
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8001} --loop app.core.loop:loop_factory
 
+# The flow is:
+
+# Python 3.13 → create /app → install dependencies → copy application → start FastAPI
 
 # Docker Image
     │
